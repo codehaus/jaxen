@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+<document url="http://jaxen.org/index.xml">
+  <body>
+    <title>Jaxen: Java XPath Engine</title>
+
+    <header>
+      <p>
+      The <i>Jaxen</i> project is a Java XPath Engine.
+      Jaxen is a universal object model walker, capable of evaluating
+      XPath expressions across multiple models.  
+      The following models are currently supported:-      
+      <ul>
+      <li><a href="http://www.w3.org/DOM/">DOM</a></li>
+      <li><a href="http://dom4j.org">dom4j</a></li>
+      <li><a href="http://www.themindelectric.com/products/xml/xml.html">EXML</a></li>
+      <li><a href="http://jdom.org">JDOM</a></li>
+      </ul>
+      </p>
+    </header>
+
+    <section title="Getting Started">
+      <p>You can download the current $VERSION$ release 
+        or a nightly build via the <a href="download.html">download page</a>.</p>
+
+      <p>You could try browsing the
+        <a href="faq.html">FAQ</a> or the online 
+        <a href="apidocs/index.html">JavaDoc</a>.
+      </p>      
+      
+      <p>Contributors are welcome to join this project. 
+        Once you've browsed the <a href="faq.html">FAQ</a> you could try
+        sending an email to one of the mailing lists below or check out the
+        <a href="http://sourceforge.net/projects/jaxen/">project page</a>.</p>
+
+    </section>
+
+    <section title="Mailing Lists">
+      <p>There is a
+        <a href="http://lists.sourceforge.net/lists/listinfo/jaxen-interest">
+          jaxen-interest
+        </a> 
+        email list where you can share ideas and experiences, ask for help, 
+        give us feedback or discuss your requirements.
+      </p>
+
+      <p>You can also browse the <a href="http://www.mail-archive.com/jaxen-interest%40lists.sourceforge.net/">archives</a>.
+      </p>
+    </section>
+
+  </body>
+</document>
