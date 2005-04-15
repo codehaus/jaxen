@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<document url="http://jaxen.org/status.xml">
+
+  <properties>
+    <author email="bob@eng.werken.com">bob mcwhirter</author>
+    <title>Status</title>
+  </properties>
+
+  <body>
+    
+    <section name="Change History">
+    <section name="Changes in CVS since last release">
+      <p>
+        Various updates to the web site. 
+      </p>
+    </section>
+      
+    <section name="Jaxen 1.1 Beta 4">
+    
+      <p>1.1 is a major upgrade that significantly improves jaxen's conformance to the
+         underlying XPath specs. Even though it's officially a beta, it is a vast 
+         improvement over 1.0, and all users are strongly encouraged to upgrade.
+         Witha  few small exceptions (e.g. the the document() function 
+        has moved to  the org.jaxen.function.xslt package and 
+        the ElectricXML navigator has been deleted) it is backwards compatible 
+        with code written to the 1.0 APIs.
+      </p>
+    
+      <p>The lang() function is now supported.</p>
+      
+      <p>All queries return nodes in the correct document order, without exception. </p>
+      <p> ancestor::* and ancestor-or-self::* axes no longer include the document node</p>
+      <p> NaN is handled properly.</p>
+      <p> The mod operator works on floating point numbers.</p>
+      <p>Navigators are now included for <a href="http://www.xom.nu">XOM</a>, HTML DOM, and JavaBeans. These are experimental and may not be included in the final release.
+      </p>
+    </section>   
+    
+    
+    <section name="Jaxen 1.0 FCS">
+      <p>Applied patch submitted by Shawn Bayern to fix the booleanValueOf() method.
+      </p>
+      <p>Added licenses to each source file and a proper manifest to the build at last ;-).
+      </p>
+    </section>
+      
+    <section name="Jaxen 1.0 RC1">
+      <p>There is now an XPath interface in the org.jaxen package to represent any XPath implementation.
+        So this means that the XPath API of Jaxen is now polymorphic, the same interface can work with 
+        any model.
+      </p>
+
+      <p>
+         This now means that the org.jaxen.* package represents a purely interface based API to any XPath
+         engine. So it should be possible to implement XPath, FunctionContext, NamespaceContext, VariableContext
+         on any XPath engine if so desired.
+      </p>
+      <p>The XPath implementation for each model has now got a fully qualified class name. 
+        The following code describes how to instantiate an XPath object for each model.
+<pre>
+// for DOM
+XPath xpath = new DOMXPath( "//foo" );
+
+// for dom4j
+XPath xpath = new Dom4jXPath( "//foo" );
+
+// for JDOM
+XPath xpath = new JDOMXPath( "//foo" );
+</pre>
+        </p>
+        <p>The XPath.valueOf() method is now deprecated, XPath.stringValueOf() should be used instead.
+        </p>
+        <p>Added new extension functions kindly provided by Mark Wilson. They are as follows...
+          <ul>
+            <li>upper-case() - converts the first argument to an upper case string using either the default Locale or the Locale specified by the second parameter</li>
+            <li>lower-case() - converts the first argument to a lower case string using either the default Locale or the Locale specified by the second parameter</li>
+            <li>ends-with() - evaluates true if the first string ends with the postfix</li>
+          </ul>
+          <p>Locales can be specified either using a variable which is a Locale object or using an xml:lang style string
+            which specifies the Locale via a language together with an optional country and variant such as 'fr', 'fr-CA' or 'es-ES-Traditional_WIN'.
+            e.g.
+          </p>
+<pre>
+upper-case( @foo, $myLocale )
+upper-case( /foo/bar, 'fr' )
+lower-case( foo, 'fr-CA' )
+upper-case( @foo, 'es-ES-Traditional_WIN' )
+</pre>
+        </p>
+        <p>The translate() function is now implemented - thanks to Jan for that!
+        </p>
+        <p>Some auxillary implementation detail changes, which shouldn't affect the public API in any way are as follows
+          <ul>
+            <li>The org.jaxen.JaXPath class has been removed. Now we have an org.jaxen.XPath interface its no longer required.</li>
+            <li>The org.jaxen.expr.XPath class has been renamed to org.jaxen.expr.XPathExpr to avoid confusion and to use a more consistent name.
+            Similarly the DefaultXPath class has been renamed to DefaultXPathExpr as well.</li>
+            <li>The very confusing jaSelect*() methods have gone from JaXPath and BaseXPath. All evaluation methods can take a Context object, null, a node or a node set.</li>
+          </ul>
+        </p>
+       </section>
+       
+      <section name="Jaxen 1.0 beta 8">
+        <p>
+          Initial beta development cycle.  Please see
+          CVS changelogs for up-to-date list of changes.
+        </p>
+       </section>
+
+    <section name="To Do List">
+      <ul>
+        <li>Implement a GenericXPath which could use reflection on the nodes passed into it to
+          choose the Navigator to use. So the same GenericXPath instance could be used
+          to evaluate XPaths on any object. This feature would be particularly useful
+          in <a href="http://jakarta.apache.org/taglibs/doc/standard-doc/intro.html">JSTL</a> 
+          since it would allow web developers to mix and match any
+          all XML models.
+        </li>
+<!--        <li>The <code>format-number()</code> XSLT function is not yet implemented but would be useful. Any volunteers?
+        </li> -->
+        <li>Jaxen is already pretty 
+        <a href="http://dom4j.org/benchmarks/xpath/index.html">fast</a>,
+        but we are sure it could use some more tuning.
+        </li>
+        <li>selectSingleNode() and possibly the *ValueOf() methods should be return-fast
+          as a performance improvement.
+          For example selectSingleNode( "//foo" ) on a document with lots of &lt;foo/&gt;
+          elements would actually create a full node-set of results then extract the first
+          element - rather than just returning as soon as the first one is found.
+        </li>
+        <li>Better user guides and examples!
+        </li>
+        <li>Any Locale specific functions, such as <code>upper-case()</code> 
+          and <code>lowercase-case()</code> could well follow the example of
+          <a href="http://www.w3.org/TR/xquery-operators/#func-upper-case">XSLT 2.0</a>
+          by using the <a href="http://www.unicode.org/unicode/reports/tr21/">Unicode case mappings</a>
+        </li>
+      </ul>
+    </section>
+
+    <section name="Known problems">    
+      <ul>
+        <li><code>id()</code> function is not implemented for most models, though it works fine for W3C DOM.</li>
+      </ul>
+    </section>
+
+  </section>
+  </body>
+</document>
