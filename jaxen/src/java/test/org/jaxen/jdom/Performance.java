@@ -45,17 +45,18 @@
  */
 package org.jaxen.jdom;
 
+import java.net.URL;
+
+import org.jaxen.jdom.JDOMXPath;
 import org.jdom.Document;
 import org.jdom.Element;
 import org.jdom.input.SAXBuilder;
-
-import java.io.File;
 
 class Performance {
     
     public static void main(String[] args) {
         try {
-            File u = new File("xml/examples/shakespeare/much_ado.xml");
+            URL u = new URL("http://www.ibiblio.org/xml/examples/shakespeare/much_ado.xml");
             Document doc = new SAXBuilder().build(u);
             JDOMXPath xpath = new JDOMXPath("PLAY/ACT/SCENE/SPEECH/SPEAKER");
             

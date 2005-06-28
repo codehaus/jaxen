@@ -155,6 +155,11 @@ public abstract class XPathTestBase extends TestCase
                     "    Result Size   :: " + results.size());
             fail("An exception was expected.");
         }
+        catch (UnsupportedAxisException e)
+        {
+            log(debug,
+                    "      ## SKIPPED -- Unsupported Axis");
+        }
         catch (JaxenException e)
         {
             log(debug, "    Caught expected exception " + e.getMessage());
@@ -163,26 +168,34 @@ public abstract class XPathTestBase extends TestCase
 
     protected void assertValueOfXPath(String expected, Object context, String xpathStr) throws JaxenException
     {
-        BaseXPath xpath = new BaseXPath(xpathStr);
-        Object node = xpath.evaluate(getContext(context));
-        String result = StringFunction.evaluate(node,
-                getNavigator());
-        log(debug,
-                "  Select :: " + xpathStr);
-        log(debug,
-                "    Expected :: " + expected);
-        log(debug,
-                "    Result   :: " + result);
-        if (!expected.equals(result))
+        try
+        {
+            BaseXPath xpath = new BaseXPath(xpathStr);
+            Object node = xpath.evaluate(getContext(context));
+            String result = StringFunction.evaluate(node,
+                    getNavigator());
+            log(debug,
+                    "  Select :: " + xpathStr);
+            log(debug,
+                    "    Expected :: " + expected);
+            log(debug,
+                    "    Result   :: " + result);
+            if (!expected.equals(result))
+            {
+                log(debug,
+                        "      ## FAILED");
+                log(debug,
+                        "      ## xpath: " + xpath + " = " + xpath.debug());
+            }
+            assertEquals(xpathStr,
+                    expected,
+                    result);
+        }
+        catch (UnsupportedAxisException e)
         {
             log(debug,
-                    "      ## FAILED");
-            log(debug,
-                    "      ## xpath: " + xpath + " = " + xpath.debug());
+                    "      ## SKIPPED -- Unsupported Axis ");
         }
-        assertEquals(xpathStr,
-                expected,
-                result);
     }
 
     protected Context getContext(Object contextNode)
@@ -232,7 +245,7 @@ public abstract class XPathTestBase extends TestCase
 
     /* test for jaxen-24
     */
-    public void testJaxen24() throws JaxenException
+    public void testid53371() throws JaxenException
     {
         Navigator nav = getNavigator();
         String url = "xml/jaxen24.xml";
@@ -252,7 +265,7 @@ public abstract class XPathTestBase extends TestCase
 
     /* jaxen-58
     */
-    public void testJaxen58() throws JaxenException
+    public void testid53391() throws JaxenException
     {
         Navigator nav = getNavigator();
         String url = "xml/jaxen24.xml";
@@ -274,7 +287,7 @@ public abstract class XPathTestBase extends TestCase
 
     /* test for jaxen-3
     */
-    public void testJaxen3() throws JaxenException
+    public void testid53430() throws JaxenException
     {
         Navigator nav = getNavigator();
         String url = "xml/simple.xml";
@@ -291,7 +304,7 @@ public abstract class XPathTestBase extends TestCase
         }
     }
 
-    public void testStringFunction1() throws JaxenException
+    public void testid53441() throws JaxenException
     {
         Navigator nav = getNavigator();
         String url = "xml/simple.xml";
@@ -308,7 +321,7 @@ public abstract class XPathTestBase extends TestCase
         }
     }
 
-    public void testStringFunction2() throws JaxenException
+    public void testid53452() throws JaxenException
     {
         Navigator nav = getNavigator();
         String url = "xml/simple.xml";
@@ -325,7 +338,7 @@ public abstract class XPathTestBase extends TestCase
         }
     }
 
-    public void testStringFunction3() throws JaxenException
+    public void testid53463() throws JaxenException
     {
         Navigator nav = getNavigator();
         String url = "xml/simple.xml";
@@ -344,7 +357,7 @@ public abstract class XPathTestBase extends TestCase
 
     /* test for jaxen-3
     */
-    public void testJaxen3dupe() throws JaxenException
+    public void testid53482() throws JaxenException
     {
         Navigator nav = getNavigator();
         String url = "xml/jaxen3.xml";
@@ -363,7 +376,7 @@ public abstract class XPathTestBase extends TestCase
 
     /* parser test cases all of which should fail
     */
-    public void testForParserErrors() throws JaxenException
+    public void testid53502() throws JaxenException
     {
         Navigator nav = getNavigator();
         String url = "xml/numbers.xml";
@@ -401,7 +414,7 @@ public abstract class XPathTestBase extends TestCase
 
     /* test cases for the use of underscores in names
     */
-    public void testUnderscoresInNames() throws JaxenException
+    public void testid53602() throws JaxenException
     {
         Navigator nav = getNavigator();
         String url = "xml/underscore.xml";
@@ -427,7 +440,7 @@ public abstract class XPathTestBase extends TestCase
 
     /* test cases for the use of = with node-sets
     */
-    public void testNodesetEqualsString() throws JaxenException
+    public void testid53662() throws JaxenException
     {
         Navigator nav = getNavigator();
         String url = "xml/web.xml";
@@ -445,7 +458,7 @@ public abstract class XPathTestBase extends TestCase
         }
     }
 
-    public void testNodesetEqualsNumber() throws JaxenException
+    public void testid53685() throws JaxenException
     {
         Navigator nav = getNavigator();
         String url = "xml/numbers.xml";
@@ -469,7 +482,7 @@ public abstract class XPathTestBase extends TestCase
 
     /* test basic math...
     */
-    public void testArithmetic() throws JaxenException
+    public void testid53733() throws JaxenException
     {
         Navigator nav = getNavigator();
         String url = "xml/numbers.xml";
@@ -520,7 +533,7 @@ public abstract class XPathTestBase extends TestCase
 
     /* test cases for preceding axis with different node types
     */
-    public void testPrecedingSiblingAxis() throws JaxenException
+    public void testid53850() throws JaxenException
     {
         Navigator nav = getNavigator();
         String url = "xml/pi2.xml";
@@ -544,7 +557,7 @@ public abstract class XPathTestBase extends TestCase
         }
     }
 
-    public void testVariableLookup() throws JaxenException
+    public void testid53911() throws JaxenException
     {
         Navigator nav = getNavigator();
         String url = "xml/id.xml";
@@ -569,7 +582,7 @@ public abstract class XPathTestBase extends TestCase
         }
     }
 
-    public void testAttributeParent() throws JaxenException
+    public void testid53957() throws JaxenException
     {
         Navigator nav = getNavigator();
         String url = "xml/id.xml";
@@ -590,7 +603,7 @@ public abstract class XPathTestBase extends TestCase
 
     /* attributes can also be used as context nodes
     */
-    public void testAttributeAsContext() throws JaxenException
+    public void testid53975() throws JaxenException
     {
         Navigator nav = getNavigator();
         String url = "xml/id.xml";
@@ -622,8 +635,15 @@ public abstract class XPathTestBase extends TestCase
             Object context = iter.next();
             assertCountXPath(3, context, "//processing-instruction()");
             assertCountXPath(2, context, "//processing-instruction('cheese')");
-            Object result = assertCountXPath2(1, context, "//processing-instruction('toast')");
-            assertValueOfXPath("is tasty", result, "string()");
+            try
+            {
+                Object result = assertCountXPath2(1, context, "//processing-instruction('toast')");
+                assertValueOfXPath("is tasty", result, "string()");
+            }
+            catch (UnsupportedAxisException e)
+            {
+                log(debug, "      ## SKIPPED -- Unsupported Axis");
+            }
         }
     }
 
@@ -861,22 +881,64 @@ public abstract class XPathTestBase extends TestCase
         while (iter.hasNext())
         {
             Object context = iter.next();
-            Object result = assertCountXPath2(1, context, "*");
-            assertValueOfXPath("web-app", result, "name()");
+            try
+            {
+                Object result = assertCountXPath2(1, context, "*");
+                assertValueOfXPath("web-app", result, "name()");
+            }
+            catch (UnsupportedAxisException e)
+            {
+                log(debug, "      ## SKIPPED -- Unsupported Axis");
+            }
             /* NOTE that the child::node() tests only work if the
               XML document does not comments or PIs
 
             */
-            result = assertCountXPath2(1, context, "./*");
-            assertValueOfXPath("web-app", result, "name()");
-            result = assertCountXPath2(1, context, "child::*");
-            assertValueOfXPath("web-app", result, "name()");
-            result = assertCountXPath2(1, context, "/*");
-            assertValueOfXPath("web-app", result, "name()");
-            result = assertCountXPath2(1, context, "/child::node()");
-            assertValueOfXPath("web-app", result, "name(.)");
-            result = assertCountXPath2(1, context, "child::node()");
-            assertValueOfXPath("web-app", result, "name(.)");
+            try
+            {
+                Object result = assertCountXPath2(1, context, "./*");
+                assertValueOfXPath("web-app", result, "name()");
+            }
+            catch (UnsupportedAxisException e)
+            {
+                log(debug, "      ## SKIPPED -- Unsupported Axis");
+            }
+            try
+            {
+                Object result = assertCountXPath2(1, context, "child::*");
+                assertValueOfXPath("web-app", result, "name()");
+            }
+            catch (UnsupportedAxisException e)
+            {
+                log(debug, "      ## SKIPPED -- Unsupported Axis");
+            }
+            try
+            {
+                Object result = assertCountXPath2(1, context, "/*");
+                assertValueOfXPath("web-app", result, "name()");
+            }
+            catch (UnsupportedAxisException e)
+            {
+                log(debug, "      ## SKIPPED -- Unsupported Axis");
+            }
+            try
+            {
+                Object result = assertCountXPath2(1, context, "/child::node()");
+                assertValueOfXPath("web-app", result, "name(.)");
+            }
+            catch (UnsupportedAxisException e)
+            {
+                log(debug, "      ## SKIPPED -- Unsupported Axis");
+            }
+            try
+            {
+                Object result = assertCountXPath2(1, context, "child::node()");
+                assertValueOfXPath("web-app", result, "name(.)");
+            }
+            catch (UnsupportedAxisException e)
+            {
+                log(debug, "      ## SKIPPED -- Unsupported Axis");
+            }
             /* empty names
             */
             assertValueOfXPath("", context, "name()");
@@ -1008,36 +1070,78 @@ public abstract class XPathTestBase extends TestCase
             assertCountXPath(20, context, "//article");
             assertCountXPath(20, context, "/*/*[@code]");
             assertCountXPath(1, context, "/moreovernews/article[@code='13563275']");
-            BaseXPath xpath = new BaseXPath("/moreovernews/article[@code='13563275']");
-            List results = xpath.selectNodes(getContext(context));
-            Object result = results.get(0);
-            assertValueOfXPath("http://c.moreover.com/click/here.pl?x13563273", result, "url");
-            xpath = new BaseXPath("/*/article[@code='13563275']");
-            results = xpath.selectNodes(getContext(context));
-            result = results.get(0);
-            assertValueOfXPath("http://c.moreover.com/click/here.pl?x13563273", result, "url");
-            xpath = new BaseXPath("//article[@code='13563275']");
-            results = xpath.selectNodes(getContext(context));
-            result = results.get(0);
-            assertValueOfXPath("http://c.moreover.com/click/here.pl?x13563273", result, "url");
-            xpath = new BaseXPath("//*[@code='13563275']");
-            results = xpath.selectNodes(getContext(context));
-            result = results.get(0);
-            assertValueOfXPath("http://c.moreover.com/click/here.pl?x13563273", result, "url");
-            xpath = new BaseXPath("/child::node()/child::node()[@code='13563275']");
-            results = xpath.selectNodes(getContext(context));
-            result = results.get(0);
-            assertValueOfXPath("http://c.moreover.com/click/here.pl?x13563273", result, "url");
-            xpath = new BaseXPath("/*/*[@code='13563275']");
-            results = xpath.selectNodes(getContext(context));
-            result = results.get(0);
-            assertValueOfXPath("http://c.moreover.com/click/here.pl?x13563273", result, "url");
+            try
+            {
+                BaseXPath xpath = new BaseXPath("/moreovernews/article[@code='13563275']");
+                List results = xpath.selectNodes(getContext(context));
+                Object result = results.get(0);
+                assertValueOfXPath("http://c.moreover.com/click/here.pl?x13563273", result, "url");
+            }
+            catch (UnsupportedAxisException e)
+            {
+                log(debug, "      ## SKIPPED -- Unsupported Axis");
+            }
+            try
+            {
+                BaseXPath xpath = new BaseXPath("/*/article[@code='13563275']");
+                List results = xpath.selectNodes(getContext(context));
+                Object result = results.get(0);
+                assertValueOfXPath("http://c.moreover.com/click/here.pl?x13563273", result, "url");
+            }
+            catch (UnsupportedAxisException e)
+            {
+                log(debug, "      ## SKIPPED -- Unsupported Axis");
+            }
+            try
+            {
+                BaseXPath xpath = new BaseXPath("//article[@code='13563275']");
+                List results = xpath.selectNodes(getContext(context));
+                Object result = results.get(0);
+                assertValueOfXPath("http://c.moreover.com/click/here.pl?x13563273", result, "url");
+            }
+            catch (UnsupportedAxisException e)
+            {
+                log(debug, "      ## SKIPPED -- Unsupported Axis");
+            }
+            try
+            {
+                BaseXPath xpath = new BaseXPath("//*[@code='13563275']");
+                List results = xpath.selectNodes(getContext(context));
+                Object result = results.get(0);
+                assertValueOfXPath("http://c.moreover.com/click/here.pl?x13563273", result, "url");
+            }
+            catch (UnsupportedAxisException e)
+            {
+                log(debug, "      ## SKIPPED -- Unsupported Axis");
+            }
+            try
+            {
+                BaseXPath xpath = new BaseXPath("/child::node()/child::node()[@code='13563275']");
+                List results = xpath.selectNodes(getContext(context));
+                Object result = results.get(0);
+                assertValueOfXPath("http://c.moreover.com/click/here.pl?x13563273", result, "url");
+            }
+            catch (UnsupportedAxisException e)
+            {
+                log(debug, "      ## SKIPPED -- Unsupported Axis");
+            }
+            try
+            {
+                BaseXPath xpath = new BaseXPath("/*/*[@code='13563275']");
+                List results = xpath.selectNodes(getContext(context));
+                Object result = results.get(0);
+                assertValueOfXPath("http://c.moreover.com/click/here.pl?x13563273", result, "url");
+            }
+            catch (UnsupportedAxisException e)
+            {
+                log(debug, "      ## SKIPPED -- Unsupported Axis");
+            }
         }
     }
 
     /* test other node types
     */
-    public void testNodeTypes() throws JaxenException
+    public void testid54747() throws JaxenException
     {
         Navigator nav = getNavigator();
         String url = "xml/contents.xml";
@@ -1062,7 +1166,7 @@ public abstract class XPathTestBase extends TestCase
 
     /* test positioning
     */
-    public void testPositioning() throws JaxenException
+    public void testid54802() throws JaxenException
     {
         Navigator nav = getNavigator();
         String url = "xml/fibo.xml";
@@ -1136,7 +1240,7 @@ public abstract class XPathTestBase extends TestCase
         }
     }
 
-    public void testCountFunction() throws JaxenException
+    public void testid54968() throws JaxenException
     {
         Navigator nav = getNavigator();
         String url = "xml/much_ado.xml";
@@ -1160,7 +1264,7 @@ public abstract class XPathTestBase extends TestCase
         }
     }
 
-    public void testCountFunctionMore() throws JaxenException
+    public void testid55020() throws JaxenException
     {
         Navigator nav = getNavigator();
         String url = "xml/much_ado.xml";
@@ -1187,7 +1291,7 @@ public abstract class XPathTestBase extends TestCase
         }
     }
 
-    public void testCorrectPredicateApplication() throws JaxenException
+    public void testid55090() throws JaxenException
     {
         Navigator nav = getNavigator();
         String url = "xml/much_ado.xml";
@@ -1208,7 +1312,7 @@ public abstract class XPathTestBase extends TestCase
 
     /* test axis node ordering
     */
-    public void testAxisNodeOrdering() throws JaxenException
+    public void testid55112() throws JaxenException
     {
         Navigator nav = getNavigator();
         String url = "xml/web.xml";
@@ -1231,7 +1335,7 @@ public abstract class XPathTestBase extends TestCase
 
     /* test document function
     */
-    public void testDocumentFunction1() throws JaxenException
+    public void testid55150() throws JaxenException
     {
         Navigator nav = getNavigator();
         String url = "xml/text.xml";
@@ -1244,9 +1348,16 @@ public abstract class XPathTestBase extends TestCase
         while (iter.hasNext())
         {
             Object context = iter.next();
-            Object result = assertCountXPath2(1, context, "document('xml/web.xml')");
-            assertValueOfXPath("snoop", result, "/web-app/servlet[1]/servlet-name");
-            assertValueOfXPath("snoop", result, "/web-app/servlet[1]/servlet-name/text()");
+            try
+            {
+                Object result = assertCountXPath2(1, context, "document('xml/web.xml')");
+                assertValueOfXPath("snoop", result, "/web-app/servlet[1]/servlet-name");
+                assertValueOfXPath("snoop", result, "/web-app/servlet[1]/servlet-name/text()");
+            }
+            catch (UnsupportedAxisException e)
+            {
+                log(debug, "      ## SKIPPED -- Unsupported Axis");
+            }
             assertValueOfXPath("snoop", context, "document('xml/web.xml')/web-app/servlet[1]/servlet-name");
         }
     }
@@ -1255,7 +1366,7 @@ public abstract class XPathTestBase extends TestCase
     First test is an example, second is the actual test.
     
     */
-    public void testDocumentFunctionContextExample() throws JaxenException
+    public void testid55189() throws JaxenException
     {
         Navigator nav = getNavigator();
         String url = "xml/text.xml";
@@ -1273,7 +1384,7 @@ public abstract class XPathTestBase extends TestCase
         }
     }
 
-    public void testDocumentFunctionActual() throws JaxenException
+    public void testid55211() throws JaxenException
     {
         Navigator nav = getNavigator();
         String url = "xml/message.xml";
@@ -1293,7 +1404,7 @@ public abstract class XPathTestBase extends TestCase
 
     /* test behaviour of AbsoluteLocationPath
     */
-    public void testAbsoluteLocationPaths() throws JaxenException
+    public void testid55183() throws JaxenException
     {
         Navigator nav = getNavigator();
         String url = "xml/simple.xml";
@@ -1315,7 +1426,7 @@ public abstract class XPathTestBase extends TestCase
 
     /* test the translate() function
     */
-    public void testTranslateFunction() throws JaxenException
+    public void testid55268() throws JaxenException
     {
         Navigator nav = getNavigator();
         String url = "xml/simple.xml";
@@ -1341,7 +1452,7 @@ public abstract class XPathTestBase extends TestCase
         }
     }
 
-    public void testSubstringFunction() throws JaxenException
+    public void testid55331() throws JaxenException
     {
         Navigator nav = getNavigator();
         String url = "xml/simple.xml";
@@ -1367,7 +1478,7 @@ public abstract class XPathTestBase extends TestCase
 
     /* Some tests for the normalize-space() function
     */
-    public void testNormalizeSpaceFunction() throws JaxenException
+    public void testid55382() throws JaxenException
     {
         Navigator nav = getNavigator();
         String url = "xml/simple.xml";
@@ -1394,7 +1505,7 @@ public abstract class XPathTestBase extends TestCase
 
     /* test cases for String extension functions
     */
-    public void testStringExtensionFunctions() throws JaxenException
+    public void testid55429() throws JaxenException
     {
         Navigator nav = getNavigator();
         String url = "xml/web.xml";
@@ -1419,7 +1530,7 @@ public abstract class XPathTestBase extends TestCase
 
     /* test cases for the lang() function
     */
-    public void testLangFunction() throws JaxenException
+    public void testid55485() throws JaxenException
     {
         Navigator nav = getNavigator();
         String url = "xml/lang.xml";
@@ -1445,7 +1556,7 @@ public abstract class XPathTestBase extends TestCase
 
     /* test namespace
     */
-    public void testNamespacesAgain() throws JaxenException
+    public void testid55235() throws JaxenException
     {
         Navigator nav = getNavigator();
         String url = "xml/namespaces.xml";
@@ -1478,7 +1589,7 @@ public abstract class XPathTestBase extends TestCase
     /* the prefix here and in the document have no relation; it's their
     namespace-uri binding that counts 
     */
-    public void testPrefixDoesntMatter() throws JaxenException
+    public void testid55615() throws JaxenException
     {
         Navigator nav = getNavigator();
         String url = "xml/namespaces.xml";
@@ -1498,7 +1609,7 @@ public abstract class XPathTestBase extends TestCase
         }
     }
 
-    public void testNamespaces() throws JaxenException
+    public void testid55632() throws JaxenException
     {
         Navigator nav = getNavigator();
         String url = "xml/namespaces.xml";
@@ -1524,7 +1635,7 @@ public abstract class XPathTestBase extends TestCase
         }
     }
 
-    public void testNoNamespace() throws JaxenException
+    public void testid55676() throws JaxenException
     {
         Navigator nav = getNavigator();
         String url = "xml/defaultNamespace.xml";
@@ -1550,7 +1661,7 @@ public abstract class XPathTestBase extends TestCase
         }
     }
 
-    public void testNamespaceResolution() throws JaxenException
+    public void testid55692() throws JaxenException
     {
         Navigator nav = getNavigator();
         String url = "xml/defaultNamespace.xml";
@@ -1570,7 +1681,7 @@ public abstract class XPathTestBase extends TestCase
         }
     }
 
-    public void testTextNodes() throws JaxenException
+    public void testid55716() throws JaxenException
     {
         Navigator nav = getNavigator();
         String url = "xml/text.xml";
@@ -1588,7 +1699,7 @@ public abstract class XPathTestBase extends TestCase
         }
     }
 
-    public void testNamespaceNodeCounts1() throws JaxenException
+    public void testid55739() throws JaxenException
     {
         Navigator nav = getNavigator();
         String url = "xml/testNamespaces.xml";
@@ -1615,7 +1726,7 @@ public abstract class XPathTestBase extends TestCase
         }
     }
 
-    public void testNamespaceNodeCounts() throws JaxenException
+    public void testid55797() throws JaxenException
     {
         Navigator nav = getNavigator();
         String url = "xml/testNamespaces.xml";
@@ -1643,7 +1754,7 @@ public abstract class XPathTestBase extends TestCase
         }
     }
 
-    public void testNamespaceNodesHaveParent() throws JaxenException
+    public void testid55873() throws JaxenException
     {
         Navigator nav = getNavigator();
         String url = "xml/testNamespaces.xml";
@@ -1664,7 +1775,7 @@ public abstract class XPathTestBase extends TestCase
 
     /* namespace nodes can also be used as context nodes
     */
-    public void testNamespaceNodeAsContext() throws JaxenException
+    public void testid55893() throws JaxenException
     {
         Navigator nav = getNavigator();
         String url = "xml/testNamespaces.xml";
