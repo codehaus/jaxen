@@ -1,0 +1,284 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="http://maven.apache.org/xsd/maven-project-3.0.0.xsd">
+
+  <pomVersion>3</pomVersion>
+  <id>jaxen</id>
+  <name>jaxen</name>
+  <currentVersion>1.1-beta-8</currentVersion>
+
+  <organization>
+    <name>Codehaus</name>
+    <url>http://www.codehaus.org</url>
+    <logo>http://codehaus.org/codehaus-small.gif</logo>
+  </organization>
+  <inceptionYear>2001</inceptionYear>
+  <package>org.jaxen</package>
+
+
+  <logo>http://images.werken.com/jaxen.gif</logo>
+  <description>
+  Jaxen is a universal Java XPath engine.
+  </description>
+  <shortDescription>Universal Java XPath Engine</shortDescription>
+
+  <url>http://jaxen.codehaus.org/</url>
+
+  <issueTrackingUrl>http://jira.codehaus.org/BrowseProject.jspa?id=10022</issueTrackingUrl>
+  <siteAddress>jaxen.codehaus.org</siteAddress>
+  <siteDirectory>/home/projects/jaxen/public_html</siteDirectory>
+  <distributionDirectory>/dist</distributionDirectory>
+  
+  <repository>
+    <connection>scm:cvs:pserver:anonymous@cvs.jaxen.codehaus.org:/home/projects/jaxen/scm:jaxen</connection>
+    <url>http://cvs.jaxen.codehaus.org</url>
+  </repository>
+  
+    <mailingLists>
+        <mailingList>
+            <name>Jaxen Users List</name>
+            <subscribe>user-subscribe@jaxen.codehaus.org</subscribe>
+            <unsubscribe>user-unsubscribe@jaxen.codehaus.org</unsubscribe>
+            <archive>http://archive.jaxen.codehaus.org/user/</archive>
+        </mailingList>
+        <mailingList>
+            <name>Jaxen Developers List</name>
+            <subscribe>dev-subscribe@jaxen.codehaus.org</subscribe>
+            <unsubscribe>dev-unsubscribe@jaxen.codehaus.org</unsubscribe>
+            <archive>http://archive.jaxen.codehaus.org/dev/</archive>
+        </mailingList>
+        <mailingList>
+            <name>Jaxen CVS Commits List</name>
+            <subscribe>scm-subscribe@jaxen.codehaus.org</subscribe>
+            <unsubscribe>scm-unsubscribe@jaxen.codehaus.org</unsubscribe>
+            <archive>http://archive.jaxen.codehaus.org/scm/</archive>
+        </mailingList>
+        <mailingList>
+            <name>Jaxen Announcement List</name>
+            <subscribe>announce-subscribe@jaxen.codehaus.org</subscribe>
+            <unsubscribe>announce-unsubscribe@jaxen.codehaus.org</unsubscribe>
+            <archive>http://archive.jaxen.codehaus.org/announce/</archive>
+        </mailingList>
+    </mailingLists>
+
+
+  <developers>
+
+    <developer>
+      <name>Bob McWhirter</name>
+      <id>bob</id>
+      <email>bob@eng.werken.com</email>
+      <organization>The Werken Company</organization>
+    </developer>
+
+    <developer>
+      <name>James Strachan</name>
+      <id>jstrachan</id>
+      <email>james_strachan@yahoo.co.uk</email>
+      <organization>Spiritsoft</organization>
+    </developer>
+
+    <developer>
+      <name>David Megginson</name>
+      <id>dmegginson</id>
+      <email>dmegginson@users.sourceforge.net</email>
+      <organization>Megginson Technologies</organization>
+    </developer>
+
+    <developer>
+      <name>Erwin Bolwidt</name> 
+      <id>eboldwidt</id>
+      <email>eboldwidt@users.sourceforge.net</email>
+    </developer>
+
+    <developer>
+      <name>Mark A. Belonga</name>
+      <id>mbelonga</id>
+      <email>mbelonga@users.sourceforge.net</email>
+    </developer>
+
+    <developer>
+      <name>Christian Nentwich</name>
+      <id>xcut</id>
+      <email>xcut@users.sourceforge.net</email>
+    </developer>
+
+    <developer>
+      <name>Alexander Day Chaffee</name>
+      <id>purpletech</id>
+      <email>purpletech@users.sourceforge.net</email>
+      <organization>Purple Technologies</organization>
+    </developer>
+
+    <developer>
+      <name>Jan Dvorak</name>
+      <id>jdvorak</id>
+      <email>jdvorak@users.sourceforge.net</email>
+    </developer>
+
+    <developer>
+      <name>Attila Szegedi</name>
+      <id>szegedia</id>
+      <email>szegedia@users.sourceforge.net</email>
+    </developer>
+
+    <developer>
+      <name>Peter Royal</name>
+      <id>proyal</id>
+      <email>peter.royal@pobox.com</email>
+      <url>http://fotap.org/~osi</url>
+    </developer>
+
+    <developer>
+      <name>Scott Sanders</name>
+      <id>ssanders</id>
+      <email>scott@dotnot.org</email>
+      <organization>dotnot</organization>
+      <url>http://dotnot.org/blog</url>
+    </developer>
+
+    <developer>
+      <name>Brian Ewins</name>
+      <id>bewins</id>
+      <email>brian.ewins@gmail.com</email>
+    </developer>
+
+    <developer>
+      <name>Elliotte Rusty Harold</name>
+      <id>elharo</id>
+      <email>elharo@metalab.unc.edu</email>
+      <organization>Cafe au Lait</organization>
+      <url>http://www.elharo.com/</url>
+    </developer>
+    
+  </developers>
+
+  <contributors>
+    <contributor>
+      <name>David Peterson</name> 
+      <email></email>
+    </contributor>
+
+    <contributor>
+      <name>Mark Wilson</name> 
+      <email></email>
+    </contributor>
+
+    <contributor>
+      <name>David Peterson</name> 
+      <email></email>
+    </contributor>
+
+    <contributor>
+      <name>Jacob Kjome</name> 
+      <email></email>
+    </contributor>
+
+    <contributor>
+      <name>Michael Brennan</name>
+      <email></email>
+    </contributor>
+
+  </contributors>
+
+  <reports>
+     <report>maven-jdepend-plugin</report>
+     <report>maven-checkstyle-plugin</report>
+     <report>maven-cobertura-plugin</report>
+     <report>maven-changes-plugin</report>
+     <report>maven-changelog-plugin</report>
+     <report>maven-developer-activity-plugin</report>
+     <report>maven-file-activity-plugin</report>
+     <report>maven-license-plugin</report>
+     <report>maven-javadoc-plugin</report>
+     <report>maven-jxr-plugin</report>
+     <report>maven-junit-report-plugin</report>
+     <report>maven-linkcheck-plugin</report>
+     <report>maven-tasklist-plugin</report>
+     <report>maven-pmd-plugin</report> 
+     <report>maven-findbugs-plugin</report> 
+   <!--  <report>maven-hammurapi-plugin</report> -->
+  </reports>
+
+  <!-- Need to mark these as compile-time/run-time -->
+
+  <dependencies>
+
+    <dependency>
+      <groupId>dom4j</groupId>
+      <artifactId>dom4j</artifactId>
+      <version>1.6.1</version>
+    </dependency>
+
+    <dependency>
+      <groupId>jdom</groupId>
+      <artifactId>jdom</artifactId>
+      <version>1.0</version>
+      <url>http://jdom.org</url>
+    </dependency>
+
+    <dependency>
+      <groupId>xerces</groupId>
+      <artifactId>xmlParserAPIs</artifactId>
+      <version>2.6.2</version>
+    </dependency>
+
+    <dependency>
+      <groupId>xerces</groupId>
+      <artifactId>xercesImpl</artifactId>
+      <version>2.6.2</version>
+    </dependency>
+
+    <dependency>
+      <groupId>xom</groupId>
+      <artifactId>xom</artifactId>
+      <version>1.0b3</version>
+    </dependency>
+
+    <dependency>
+      <groupId>maven-plugins</groupId>
+      <artifactId>maven-cobertura-plugin</artifactId>
+      <version>1.1.1</version>
+      <type>plugin</type>
+    </dependency>
+    
+    <dependency>
+      <groupId>maven-plugins</groupId>
+      <artifactId>maven-findbugs-plugin</artifactId>
+      <version>0.9.2</version>
+      <type>plugin</type>
+    </dependency>
+
+ <!--   <dependency>
+      <groupId>org.hammurapi</groupId>
+      <artifactId>maven-hammurapi-plugin</artifactId>
+      <version>1.0</version>
+      <type>plugin</type>
+    </dependency> -->
+  </dependencies>
+
+  <build>
+
+    <nagEmailAddress>dev@jaxen.codehaus.org</nagEmailAddress>
+    <sourceDirectory>src/java/main</sourceDirectory>
+    <unitTestSourceDirectory>src/java/test</unitTestSourceDirectory>
+
+    <!-- Unit test classes -->
+
+    <unitTest>
+      <includes>
+        <include>**/*Test.java</include>
+      </includes>
+      
+      <excludes>
+        <!-- currently broken -->
+        <exclude>org/jaxen/jdom/XPathTest.java</exclude>
+      </excludes>
+
+    </unitTest>
+
+  </build>
+
+</project>
+
+

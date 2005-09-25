@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+
+<project name="jaxen" repository="jaxen" href="http://jaxen.org">
+
+    <title>jaxen: universal java xpath engine</title>
+
+    <body>
+        <links>
+            <item name="The Werken Company" href="http://www.werken.com/"/>
+        </links>
+        <menu name="jaxen">
+            <item name="Overview" href="/index.html"/>
+            <item name="Download Jaxen" href="/releases.html"/>
+            <item name="API Documentation" href="/apidocs/index.html"/>
+            <item name="FAQ" href="/faq.html"/>
+            <item name="Writing Extension Functions" href="/extensions.html"/>
+            <item name="Releases" href="/releases.html"/>
+            <item name="CVS Access" href="/cvs-usage.html"/>
+            <item name="Status" href="/status.html"/>
+        </menu>
+    </body>
+
+</project>
