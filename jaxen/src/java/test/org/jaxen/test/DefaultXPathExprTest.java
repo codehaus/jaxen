@@ -57,6 +57,7 @@ import javax.xml.parsers.ParserConfigurationException;
 import org.jaxen.JaxenException;
 import org.jaxen.dom.DOMXPath;
 import org.jaxen.expr.Expr;
+import org.jaxen.expr.PathExpr;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 
@@ -68,7 +69,7 @@ import junit.framework.TestCase;
  * </p>
  * 
  * @author Elliotte Rusty Harold
- * @version 1.1b12
+ * @version 1.1b11
  *
  */
 public class DefaultXPathExprTest extends TestCase

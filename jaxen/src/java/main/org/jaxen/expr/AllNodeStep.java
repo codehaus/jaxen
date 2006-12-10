@@ -46,11 +46,6 @@
  */
 package org.jaxen.expr;
 
-
-/**
- * Represents the XPath node-test <code>node()</code>.
- * 
- */
 public interface AllNodeStep extends Step
 {
 }

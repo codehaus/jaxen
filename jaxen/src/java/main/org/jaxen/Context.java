@@ -63,8 +63,9 @@ import java.util.List;
  *
  *  @author <a href="mailto:bob@werken.com">bob mcwhirter</a>
  */
-public class Context implements Serializable {
-    
+public class Context
+    implements Serializable
+{
     /**
      * 
      */
@@ -98,27 +99,17 @@ public class Context implements Serializable {
     {
         this.contextSupport = contextSupport;
         this.nodeSet        = Collections.EMPTY_LIST;
-        this.size           = 0;
-        this.position       = 0;
+        this.size = 0;
+        // XXX What should position be?
     }
     
     // ----------------------------------------------------------------------
     //     Instance methods
     // ----------------------------------------------------------------------
 
-    /** 
-     * <p>
-     * Set the context node-set, and sets the current context size to the size 
-     * of this node-set. </p>
-     * 
-     * <p>The actual list is stored in this object. A copy
-     * is not made. This list should not be modified in other code after
-     * calling this method.</p>
-     *  
-     * <p>
-     * After invoking this method, the client should immediately call 
-     * {@link #setSize(int) setSize} and {@link #setPosition(int) setPosition}.
-     *</p>
+    /** Set the context node-set, and sets the current context size to the size 
+     * of this node-set. The actual list is stored in this object. A copy
+     * is not made.
      *
      *  @param nodeSet the context node-set
      */
@@ -126,12 +117,10 @@ public class Context implements Serializable {
     {
         this.nodeSet = nodeSet;
         this.size    = nodeSet.size();
-        if (position >= size) this.position = 0;
+        // XXX How should we set position?
     }
 
-    /** Retrieve the context node-set.
-     *  This is a live list. It is not a copy.
-     *  Do not modify it.
+    /** Retrieve the context node-set. This is a live list. It is not a copy.
      *
      *  @return the context node-set
      */
@@ -277,7 +266,7 @@ public class Context implements Serializable {
             List dupeNodeSet = new ArrayList( thisNodeSet.size() );
             dupeNodeSet.addAll( thisNodeSet );
             dupe.setNodeSet( dupeNodeSet );
-            dupe.setPosition(this.position);
+            // XXX should set the size of the duplicate
         }
 
         return dupe;

@@ -105,4 +105,8 @@ class DefaultVariableReferenceExpr extends DefaultExpr implements VariableRefere
                                          localName );
     }
     
+    public void accept(Visitor visitor)
+    {
+        visitor.visit(this);
+    }
 }

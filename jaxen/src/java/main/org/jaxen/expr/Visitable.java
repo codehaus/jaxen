@@ -45,7 +45,6 @@
  * $Id$
  */
 package org.jaxen.expr;
-
-public interface MultiplicativeExpr extends BinaryExpr{
-    public String getOperator();
+public interface Visitable {
+    public void accept(Visitor visitor);
 }

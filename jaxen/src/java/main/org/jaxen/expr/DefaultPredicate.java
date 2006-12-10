@@ -94,5 +94,8 @@ class DefaultPredicate implements Predicate
     {
         return getExpr().evaluate( context );
     }
-    
+    public void accept(Visitor visitor)
+    {
+        visitor.visit(this);
+    }   
 }

@@ -100,4 +100,9 @@ class DefaultOrExpr extends DefaultLogicalExpr
         return Boolean.FALSE;
     }
     
+    public void accept(Visitor visitor)
+    {
+        visitor.visit(this);
+    }
+    
 }

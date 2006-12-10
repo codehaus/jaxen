@@ -59,34 +59,21 @@ import java.util.ListIterator;
 import java.util.NoSuchElementException;
 
 /**
- * <p>
- * Represents the XPath <code>preceding</code> axis. 
- * The "<code>preceding</code> axis contains all nodes in the same document as the context 
- * node that are before the context node in document order, excluding any ancestors 
- * and excluding attribute nodes and namespace nodes."
- * 
- * <p>
- * This implementation of '<code>preceding</code>' works like so:
- * the <code>preceding</code> axis includes preceding siblings of this node and 
- * their descendants. Also, for each ancestor node of this node, it includes
- * all preceding siblings of that ancestor, and their descendants. Finally, it
+ * This implementation of 'preceding' works like so:
+ * the preceding axis includes preceding-siblings of this node and their
+ * descendants. Also, for each ancestor node of this node, it includes
+ * all preceding-siblings of that ancestor, and their descendants. Finally, it
  * includes the ancestor nodes themselves.
- * </p>
- * 
- * <p>
- * The reversed <code>descendant-or-self</code> axes that are required are calculated using a
+ * <p/>
+ * The reversed descendant-or-self axes that are required are calculated using a
  * stack of reversed 'child-or-self' axes. When asked for a node, it is always taken
  * from a child-or-self axis. If it was the last node on that axis, the node is returned.
  * Otherwise, this axis is pushed on the stack, and the process is repeated with the child-or-self
  * of the node. Eventually this recurses down to the last descendant of any node, then works
  * back up to the root.
- * </p>
- * 
- * <p>
- * Most object models could provide a faster implementation of the reversed
- * 'children-or-self' used here.</p>
- * 
- * @version 1.2b12
+ * <p/>
+ * I reckon most object models could provide a faster implementation of the reversed
+ * 'children-or-self' used here.
  */
 public class PrecedingAxisIterator implements Iterator
 {
@@ -97,12 +84,6 @@ public class PrecedingAxisIterator implements Iterator
 
     private Navigator navigator;
 
-    /**
-     * Create a new <code>preceding</code> axis iterator.
-     * 
-     * @param contextNode the node to start from
-     * @param navigator the object model specific navigator
-     */
     public PrecedingAxisIterator(Object contextNode,
                                  Navigator navigator) throws UnsupportedAxisException
     {
@@ -114,13 +95,6 @@ public class PrecedingAxisIterator implements Iterator
     }
 
 
-    /**
-     * Returns true if there are any preceding nodes remaining; false otherwise.
-     * 
-     * @return true if any preceding nodes remain; false otherwise
-     * 
-     * @see java.util.Iterator#hasNext()
-     */
     public boolean hasNext()
     {
         try
@@ -176,15 +150,6 @@ public class PrecedingAxisIterator implements Iterator
         }
     }
 
-    /**
-     * Returns the next preceding node.
-     * 
-     * @return the next preceding node
-     * 
-     * @throws NoSuchElementException if no preceding nodes remain
-     * 
-     * @see java.util.Iterator#next()
-     */
     public Object next() throws NoSuchElementException
     {
         if (!hasNext())
@@ -206,14 +171,8 @@ public class PrecedingAxisIterator implements Iterator
     }
 
 
-    /**
-     * This operation is not supported.
-     * 
-     * @throws UnsupportedOperationException always
-     */
     public void remove() throws UnsupportedOperationException
     {
         throw new UnsupportedOperationException();
     }
-    
 }

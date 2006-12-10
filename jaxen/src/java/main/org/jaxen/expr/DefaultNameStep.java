@@ -389,6 +389,15 @@ public class DefaultNameStep extends DefaultStep implements NameStep {
         }
         return uri1.equals(uri2);
     }
+
+    /**
+     * Visitor pattern for the step.
+     * 
+     * @param visitor  the visitor object
+     */
+    public void accept(Visitor visitor) {
+        visitor.visit(this);
+    }
     
     /**
      * Returns a full information debugging string.

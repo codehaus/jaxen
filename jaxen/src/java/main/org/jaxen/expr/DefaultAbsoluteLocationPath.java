@@ -113,5 +113,9 @@ public class DefaultAbsoluteLocationPath extends DefaultLocationPath
         return super.evaluate( absContext );
     }
 
+    public void accept(Visitor visitor)
+    {
+        visitor.visit(this);
+    }
 }
 

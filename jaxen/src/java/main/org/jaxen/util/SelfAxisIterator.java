@@ -49,22 +49,9 @@
 
 package org.jaxen.util;
 
-/**
- * 
- * Represents the XPath <code>self</code> axis. The "<code>self</code> axis contains 
- * just the context node itself."
- * 
- * @version 1.2b12
- *
- */
 public class SelfAxisIterator extends SingleObjectIterator
 {
 
-    /**
-     * Create a new <code>self</code> axis iterator.
-     * 
-     * @param contextNode the node to start from
-     */
     public SelfAxisIterator(Object node)
     {
         super(node);

@@ -65,12 +65,6 @@ import org.jaxen.expr.iter.IterableSelfAxis;
 import org.jaxen.saxpath.Axis;
 import org.jaxen.saxpath.Operator;
 
-/**
- * The concrete implementation of the XPathFactory anstract factory.
- *
- *
- * @see XPathFactory
- */
 public class DefaultXPathFactory implements XPathFactory
 {
     public XPathExpr createXPath( Expr rootExpr ) throws JaxenException
@@ -301,46 +295,82 @@ public class DefaultXPathFactory implements XPathFactory
         return new DefaultPredicate( predicateExpr );
     }
 
-    protected IterableAxis getIterableAxis( int axis ) throws JaxenException
+    protected IterableAxis getIterableAxis( int axis )
     {
-
+        IterableAxis iter = null;
         switch( axis )
         {
             case Axis.CHILD:
-                 return new IterableChildAxis( axis );
+                {
+                    iter = new IterableChildAxis( axis );
+                    break;
+                }
             case Axis.DESCENDANT:
-                 return  new IterableDescendantAxis( axis );
+                {
+                    iter = new IterableDescendantAxis( axis );
+                    break;
+                }
             case Axis.PARENT:
-                return new IterableParentAxis( axis );
+                {
+                    iter = new IterableParentAxis( axis );
+                    break;
+                }
             case Axis.FOLLOWING_SIBLING:
-                return  new IterableFollowingSiblingAxis( axis );
+                {
+                    iter = new IterableFollowingSiblingAxis( axis );
+                    break;
+                }
             case Axis.PRECEDING_SIBLING:
-                return new IterablePrecedingSiblingAxis( axis );
+                {
+                    iter = new IterablePrecedingSiblingAxis( axis );
+                    break;
+                }
             case Axis.FOLLOWING:
-                return new IterableFollowingAxis( axis );
+                {
+                    iter = new IterableFollowingAxis( axis );
+                    break;
+                }
             case Axis.PRECEDING:
-                return new IterablePrecedingAxis( axis );
+                {
+                    iter = new IterablePrecedingAxis( axis );
+                    break;
+                }
             case Axis.ATTRIBUTE:
-                return new IterableAttributeAxis( axis );
+                {
+                    iter = new IterableAttributeAxis( axis );
+                    break;
+                }
             case Axis.NAMESPACE:
-                return new IterableNamespaceAxis( axis );
+                {
+                    iter = new IterableNamespaceAxis( axis );
+                    break;
+                }
             case Axis.SELF:
-                return new IterableSelfAxis( axis );
+                {
+                    iter = new IterableSelfAxis( axis );
+                    break;
+                }
             case Axis.DESCENDANT_OR_SELF:
-                return new IterableDescendantOrSelfAxis( axis );
+                {
+                    iter = new IterableDescendantOrSelfAxis( axis );
+                    break;
+                }
             case Axis.ANCESTOR_OR_SELF:
-                return new IterableAncestorOrSelfAxis( axis );
+                {
+                    iter = new IterableAncestorOrSelfAxis( axis );
+                    break;
+                }
             case Axis.ANCESTOR:
-                return new IterableAncestorAxis( axis );
-            default:
-                throw new JaxenException("Unrecognized axis code: " + axis);
+                {
+                    iter = new IterableAncestorAxis( axis );
+                    break;
+                }
         }
-
+        return iter;
     }
 
     public PredicateSet createPredicateSet() throws JaxenException
     {
         return new PredicateSet();
     }
-    
 }

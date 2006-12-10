@@ -5,7 +5,7 @@
  *
  * ====================================================================
  *
- * Copyright 2006 Elliotte Rusty Harold
+ * Copyright 2000-2002 bob mcwhirter & James Strachan.
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -44,35 +44,46 @@
  * 
  * $Id$
  */
-
-package org.jaxen.test;
-
-import junit.framework.TestCase;
-
-import org.jaxen.JaxenException;
-import org.jaxen.expr.iter.IterableAxis;
-import org.jaxen.expr.iter.IterableSelfAxis;
-import org.xml.sax.SAXException;
-
-/**
- * @author Elliotte Rusty Harold
- * @version 1.1b12
- * 
- */
-public class IterableAxisTest extends TestCase {
-
-    public void testIterableSelfNamedAxis() 
-      throws JaxenException, SAXException {
-        
-        IterableAxis axis = new IterableSelfAxis(0);
-        try {
-            axis.namedAccessIterator(null, null, "name", "pre", "http://www.example.org/");
-            fail("should not support operation");
-        }
-        catch (UnsupportedOperationException ex) {
-            assertEquals("Named access unsupported", ex.getMessage());
-        }
-         
-    }    
-
+package org.jaxen.expr;
+public class VisitorSupport implements Visitor {
+    public void visit(PathExpr path) {
+    }
+    public void visit(LocationPath path) {
+    }
+    public void visit(LogicalExpr expr) {
+    }
+    public void visit(EqualityExpr expr) {
+    }
+    public void visit(FilterExpr expr) {
+    }
+    public void visit(RelationalExpr expr) {
+    }
+    public void visit(AdditiveExpr expr) {
+    }
+    public void visit(MultiplicativeExpr expr) {
+    }
+    public void visit(UnaryExpr expr) {
+    }
+    public void visit(UnionExpr expr) {
+    }
+    public void visit(NumberExpr expr) {
+    }
+    public void visit(LiteralExpr expr) {
+    }
+    public void visit(VariableReferenceExpr expr) {
+    }
+    public void visit(FunctionCallExpr expr) {
+    }
+    public void visit(NameStep step){
+    }
+    public void visit(ProcessingInstructionNodeStep step){
+    }
+    public void visit(AllNodeStep step){
+    }
+    public void visit(TextNodeStep step){
+    }
+    public void visit(CommentNodeStep step){
+    }
+    public void visit(Predicate predicate){
+    }
 }
