@@ -83,5 +83,9 @@ public class DefaultAllNodeStep extends DefaultStep implements AllNodeStep
     {
         return true;
     }
-
+    
+    public void accept(Visitor visitor)
+    {
+        visitor.visit(this);
+    }
 }

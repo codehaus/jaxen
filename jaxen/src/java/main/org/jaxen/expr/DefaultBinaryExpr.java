@@ -54,7 +54,8 @@ abstract class DefaultBinaryExpr extends DefaultExpr implements BinaryExpr
     private Expr lhs;
     private Expr rhs;
 
-    DefaultBinaryExpr(Expr lhs, Expr rhs)
+    DefaultBinaryExpr(Expr lhs,
+                             Expr rhs)
     {
         this.lhs = lhs;
         this.rhs = rhs;
@@ -84,12 +85,12 @@ abstract class DefaultBinaryExpr extends DefaultExpr implements BinaryExpr
 
     public String getText()
     {
-        return "(" + getLHS().getText() + " " + getOperator() + " " + getRHS().getText() +")";
+        return "(" + getLHS().getText() + " " + getOperator() + " " + getRHS().getText() + ")";
     }
 
     public String toString()
     {
-        return "[" + getClass().getName() + ": " + getLHS() + ", " + getRHS() + "]";
+        return "[(" + getClass().getName() + "): " + getLHS() + ", " + getRHS() + "]";
     }
 
     public Expr simplify()

@@ -76,19 +76,16 @@ class DefaultLiteralExpr extends DefaultExpr implements LiteralExpr
 
     public String getText()
     {
-        
-        if (literal.indexOf('"') == -1 ) {
-            return "\"" + getLiteral() + "\"";
-        }
-        else { // Not possible for string literal to contain both " and '
-            return "'" + getLiteral() + "'";
-        }
-            
+        return "\"" + getLiteral() + "\"";
     }
 
     public Object evaluate(Context context)
     {
         return getLiteral();
     }
-       
+    
+    public void accept(Visitor visitor)
+    {
+        visitor.visit(this);
+    }   
 }

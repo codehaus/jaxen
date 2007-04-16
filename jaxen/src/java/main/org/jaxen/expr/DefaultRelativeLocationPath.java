@@ -66,4 +66,8 @@ public class DefaultRelativeLocationPath extends DefaultLocationPath
         return "[(DefaultRelativeLocationPath): " + super.toString() + "]";
     }
     
+    public void accept(Visitor visitor)
+    {
+        visitor.visit(this);
+    }
 }

@@ -5,7 +5,7 @@
  *
  * ====================================================================
  *
- * Copyright 2006 bob mcwhirter & James Strachan.
+ * Copyright 2000-2002 bob mcwhirter & James Strachan.
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -44,58 +44,7 @@
  * 
  * $Id$
  */
-
-
-
-package org.jaxen.test;
-
-import javax.xml.parsers.ParserConfigurationException;
-
-import org.jaxen.BaseXPath;
-import org.jaxen.JaxenException;
-import org.jaxen.dom.DOMXPath;
-
-import junit.framework.TestCase;
-
-/**
- * <p>
- *  Test for various kinds of literals.
- * </p>
- * 
- * @author Elliotte Rusty Harold
- * @version 1.1.1
- *
- */
-public class LiteralExprTest extends TestCase
-{
-
-    public void testStringLiteralContainsDoubleQuote() 
-     throws JaxenException, ParserConfigurationException {
-      
-        DOMXPath xpath = new DOMXPath("'\"'");
-        String expr = xpath.getRootExpr().getText();
-        assertEquals("'\"'", expr);
-      
-    }
-
-    public void testStringLiteralContainsSingleQuote() 
-      throws JaxenException, ParserConfigurationException {
-    
-        DOMXPath xpath = new DOMXPath("\"'\"");
-        String expr = xpath.getRootExpr().getText();
-        assertEquals("\"'\"", expr);
-    
-    }
-  
-    public void testJaxen177() 
-      throws JaxenException, ParserConfigurationException {
-    
-        BaseXPath baseXPath = new BaseXPath("//Name[@Attribute = '\"']", null);
-        BaseXPath baseXPath2 = new BaseXPath(baseXPath.getRootExpr().getText(), null);
-        assertEquals(
-          "/descendant-or-self::node()/child::Name[(attribute::Attribute = '\"')]",
-          baseXPath2.getRootExpr().getText());
-        
-    }
-
+package org.jaxen.expr;
+public interface Visitable {
+    public void accept(Visitor visitor);
 }

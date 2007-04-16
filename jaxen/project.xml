@@ -5,7 +5,7 @@
   <pomVersion>3</pomVersion>
   <id>jaxen</id>
   <name>jaxen</name>
-  <currentVersion>1.1.1-SNAPSHOT</currentVersion>
+  <currentVersion>1.1-beta-10</currentVersion>
 
   <organization>
     <name>Codehaus</name>
@@ -30,36 +30,37 @@
   <distributionDirectory>/dist</distributionDirectory>
   
   <repository>
-    <connection>scm:cvs:pserver:anonymous@cvs.jaxen.codehaus.org:/cvs/jaxen:jaxen</connection>
+    <connection>scm:cvs:pserver:anonymous@cvs.jaxen.codehaus.org:/home/projects/jaxen/scm:jaxen</connection>
     <url>http://cvs.jaxen.codehaus.org</url>
   </repository>
   
-  <mailingLists>
-    <mailingList>
-        <name>Jaxen Users List</name>
-        <subscribe>user-subscribe@jaxen.codehaus.org</subscribe>
-        <unsubscribe>user-unsubscribe@jaxen.codehaus.org</unsubscribe>
-        <archive>http://archive.jaxen.codehaus.org/user/</archive>
-    </mailingList>
-    <mailingList>
-        <name>Jaxen Developers List</name>
-        <subscribe>dev-subscribe@jaxen.codehaus.org</subscribe>
-        <unsubscribe>dev-unsubscribe@jaxen.codehaus.org</unsubscribe>
-        <archive>http://archive.jaxen.codehaus.org/dev/</archive>
-    </mailingList>
-    <mailingList>
-        <name>Jaxen CVS Commits List</name>
-        <subscribe>scm-subscribe@jaxen.codehaus.org</subscribe>
-        <unsubscribe>scm-unsubscribe@jaxen.codehaus.org</unsubscribe>
-        <archive>http://archive.jaxen.codehaus.org/scm/</archive>
-    </mailingList>
-    <!-- <mailingList>
-        <name>Jaxen Announcement List</name>
-        <subscribe>announce-subscribe@jaxen.codehaus.org</subscribe>
-        <unsubscribe>announce-unsubscribe@jaxen.codehaus.org</unsubscribe>
-        <archive>http://archive.jaxen.codehaus.org/announce/</archive>
-    </mailingList> -->
-  </mailingLists>
+    <!-- the archive URLs are broken ???? -->
+    <mailingLists>
+        <mailingList>
+            <name>Jaxen Users List</name>
+            <subscribe>user-subscribe@jaxen.codehaus.org</subscribe>
+            <unsubscribe>user-unsubscribe@jaxen.codehaus.org</unsubscribe>
+            <!--<archive>http://archive.jaxen.codehaus.org/user/</archive> -->
+        </mailingList>
+        <mailingList>
+            <name>Jaxen Developers List</name>
+            <subscribe>dev-subscribe@jaxen.codehaus.org</subscribe>
+            <unsubscribe>dev-unsubscribe@jaxen.codehaus.org</unsubscribe>
+         <!--   <archive>http://archive.jaxen.codehaus.org/dev/</archive> -->
+        </mailingList>
+        <mailingList>
+            <name>Jaxen CVS Commits List</name>
+            <subscribe>scm-subscribe@jaxen.codehaus.org</subscribe>
+            <unsubscribe>scm-unsubscribe@jaxen.codehaus.org</unsubscribe>
+       <!--     <archive>http://archive.jaxen.codehaus.org/scm/</archive> -->
+        </mailingList>
+        <mailingList>
+            <name>Jaxen Announcement List</name>
+            <subscribe>announce-subscribe@jaxen.codehaus.org</subscribe>
+            <unsubscribe>announce-unsubscribe@jaxen.codehaus.org</unsubscribe>
+       <!--     <archive>http://archive.jaxen.codehaus.org/announce/</archive> -->
+        </mailingList>
+    </mailingLists>
 
 
   <developers>
@@ -156,11 +157,6 @@
 
   <contributors>
     <contributor>
-      <name>Ryan Gustafson</name> 
-      <email>rgustav@users.sourceforge.net</email>
-    </contributor>
-
-    <contributor>
       <name>David Peterson</name> 
       <email>david@randombits.org</email>
     </contributor>
@@ -214,16 +210,10 @@
       <email>cao@ispsoft.com</email>
     </contributor>
 
-    <contributor>
+   <contributor>
       <name>Jérôme Nègre</name>
       <email>jerome.negre@e-xmlmedia.fr</email>
     </contributor>
-
-    <!-- org.jaxen.ext.MatrixConcat function -->
-    <!-- <contributor>
-      <name>James Pereira</name>
-      <email>JPereira@CT.BBD.CO.ZA</email>
-    </contributor> -->
 
     <!-- found next two in CVS-->
     <contributor>
@@ -289,13 +279,13 @@
     <dependency>
       <groupId>xom</groupId>
       <artifactId>xom</artifactId>
-      <version>1.0</version>
+      <version>1.0b3</version>
     </dependency>
 
     <dependency>
       <groupId>maven-plugins</groupId>
       <artifactId>maven-cobertura-plugin</artifactId>
-      <version>1.2</version>
+      <version>1.1.1</version>
       <type>plugin</type>
     </dependency>
     

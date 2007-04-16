@@ -51,8 +51,7 @@ import java.util.List;
  *  <p>
  *  The <code>Context</code> bundles utilities together
  *  for evaluation of the expression.  It wraps the provided
- *  objects for ease-of-passage through the expression 
- *  <acronym title="Abstract Syntax Tree">AST</acronym>.
+ *  objects for ease-of-passage through the expression AST.
  *  </p>
  *
  *  @see ContextSupport
@@ -63,8 +62,9 @@ import java.util.List;
  *
  *  @author <a href="mailto:bob@werken.com">bob mcwhirter</a>
  */
-public class Context implements Serializable {
-    
+public class Context
+    implements Serializable
+{
     /**
      * 
      */
@@ -98,40 +98,22 @@ public class Context implements Serializable {
     {
         this.contextSupport = contextSupport;
         this.nodeSet        = Collections.EMPTY_LIST;
-        this.size           = 0;
-        this.position       = 0;
     }
     
     // ----------------------------------------------------------------------
     //     Instance methods
     // ----------------------------------------------------------------------
 
-    /** 
-     * <p>
-     * Set the context node-set, and sets the current context size to the size 
-     * of this node-set. </p>
-     * 
-     * <p>The actual list is stored in this object. A copy
-     * is not made. This list should not be modified in other code after
-     * calling this method.</p>
-     *  
-     * <p>
-     * After invoking this method, the client should immediately call 
-     * {@link #setSize(int) setSize} and {@link #setPosition(int) setPosition}.
-     *</p>
+    /** Set the context node-set.
      *
      *  @param nodeSet the context node-set
      */
     public void setNodeSet(List nodeSet)
     {
         this.nodeSet = nodeSet;
-        this.size    = nodeSet.size();
-        if (position >= size) this.position = 0;
     }
 
     /** Retrieve the context node-set.
-     *  This is a live list. It is not a copy.
-     *  Do not modify it.
      *
      *  @return the context node-set
      */
@@ -231,7 +213,7 @@ public class Context implements Serializable {
         this.size = size;
     }
 
-    /** Retrieve the size of the current context node-set.
+    /** Retrieve the size of the context node-set.
      *
      *  @return the size
      */
@@ -277,7 +259,6 @@ public class Context implements Serializable {
             List dupeNodeSet = new ArrayList( thisNodeSet.size() );
             dupeNodeSet.addAll( thisNodeSet );
             dupe.setNodeSet( dupeNodeSet );
-            dupe.setPosition(this.position);
         }
 
         return dupe;

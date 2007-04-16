@@ -78,20 +78,24 @@ class DefaultVariableReferenceExpr extends DefaultExpr implements VariableRefere
 
     public String toString()
     {
-        return "[(DefaultVariableReferenceExpr): " + getQName() + "]";
-    }
-    
-    private String getQName() {
-        if ( "".equals(prefix) )
+
+        if ( prefix == null )
         {
-            return localName;
+            return "[(DefaultVariableReferenceExpr): " + localName + "]";
         }
-        return prefix + ":" + localName;
+
+        return "[(DefaultVariableReferenceExpr): " + prefix + ":" + localName + "]";
     }
 
     public String getText()
     {
-        return "$" + getQName();
+
+        if ( prefix == null )
+        {
+            return "$" + localName;
+        }
+
+        return "$" + prefix + ":" + localName;
     }
 
     public Object evaluate(Context context)
@@ -105,4 +109,8 @@ class DefaultVariableReferenceExpr extends DefaultExpr implements VariableRefere
                                          localName );
     }
     
+    public void accept(Visitor visitor)
+    {
+        visitor.visit(this);
+    }
 }

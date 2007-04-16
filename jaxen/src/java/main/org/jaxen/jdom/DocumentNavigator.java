@@ -194,11 +194,11 @@ public class DocumentNavigator extends DefaultNavigator implements NamedAccessNa
 
     /**
      * Retrieves an <code>Iterator</code> over the child elements that
-     * match the supplied local name and namespace URI.
+     * match the supplied name.
      *
      * @param contextNode      the origin context node
      * @param localName        the local name of the children to return, always present
-     * @param namespacePrefix  ignored; prefixes are not used when matching in XPath
+     * @param namespacePrefix  the prefix of the namespace of the children to return
      * @param namespaceURI     the URI of the namespace of the children to return
      * @return an Iterator     that traverses the named children, or null if none
      */
@@ -220,15 +220,10 @@ public class DocumentNavigator extends DefaultNavigator implements NamedAccessNa
                 return JaxenConstants.EMPTY_ITERATOR;
             }
             if (namespaceURI != null) {
-                // JDOM's equals method does not consider the prefix when comparing namespace objects
-                if (!Namespace.getNamespace(namespacePrefix, namespaceURI).equals(el.getNamespace())) {
+                if (Namespace.getNamespace(namespacePrefix, namespaceURI).equals(el.getNamespace()) == false) {
                     return JaxenConstants.EMPTY_ITERATOR;
                 }
             }
-            else if(el.getNamespace() != Namespace.NO_NAMESPACE) { 
-                return JaxenConstants.EMPTY_ITERATOR; 
-            }
-            
             return new SingleObjectIterator(el);
         }
 

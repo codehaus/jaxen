@@ -56,14 +56,6 @@ import java.util.Iterator;
 import java.util.NoSuchElementException;
 import java.util.ArrayList;
 
-/**
- * Represents the XPath <code>descendant</code> axis. 
- * The "<code>descendant</code> axis contains the descendants of the context node; 
- * a descendant is a child or a child of a child and so on; thus 
- * the descendant axis never contains attribute or namespace nodes."
- * 
- * @version 1.2b12
- */
 public class DescendantAxisIterator implements Iterator
 {
 
@@ -71,12 +63,6 @@ public class DescendantAxisIterator implements Iterator
     private Iterator children;
     private Navigator navigator;
 
-    /**
-     * Create a new <code>descendant</code> axis iterator.
-     * 
-     * @param contextNode the node to start from
-     * @param navigator the object model specific navigator
-     */
     public DescendantAxisIterator(Object contextNode,
                                   Navigator navigator) throws UnsupportedAxisException
     {
@@ -90,13 +76,7 @@ public class DescendantAxisIterator implements Iterator
         this.children = iterator;
     }
 
-    /**
-     * Returns true if there are any descendants remaining; false otherwise.
-     * 
-     * @return true if any descendants remain; false otherwise
-     * 
-     * @see java.util.Iterator#hasNext()
-     */    public boolean hasNext()
+    public boolean hasNext()
     {
         while (!children.hasNext())
         {
@@ -109,15 +89,6 @@ public class DescendantAxisIterator implements Iterator
         return true;
     }
 
-    /**
-     * Returns the next descendant node.
-     * 
-     * @return the next descendant node
-     * 
-     * @throws NoSuchElementException if no descendants remain
-     * 
-     * @see java.util.Iterator#next()
-     */
     public Object next()
     {
         try
@@ -137,11 +108,6 @@ public class DescendantAxisIterator implements Iterator
         }
     }
 
-    /**
-     * This operation is not supported.
-     * 
-     * @throws UnsupportedOperationException always
-     */
     public void remove()
     {
         throw new UnsupportedOperationException();

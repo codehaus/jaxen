@@ -46,48 +46,14 @@
  */
 
 
-package org.jaxen.expr;
 
+package org.jaxen.expr;
 import java.util.List;
 
-/**
- * Represents an XPath function call expression. This is production 16 in the 
- * <a href="http://www.w3.org/TR/xpath#NT-FunctionCall">XPath 1.0 specification</a>:
- * 
- * <<pre>[16] FunctionCall ::= FunctionName '(' ( Argument ( ',' Argument )* )? ')'</pre>
- * 
- */
 public interface FunctionCallExpr extends Expr
 {
-    
-    /**
-     * Returns the namespace prefix of the function. This is the empty
-     * string for XPath's built-in functions. 
-     * 
-     * @return the namespace prefix of the function
-     */
     public String getPrefix();
-    
-    /**
-     * Returns the local name of the function. 
-     * 
-     * @return the local name of the function
-     */
     public String getFunctionName();
-    
-    /**
-     * Add the next argument to the function. 
-     * 
-     * @param parameter a function argument 
-     */
     public void addParameter(Expr parameter);
-    
-    /**
-     * Returns the the ordered list of function arguments.
-     * Each member of the list is an <code>Expr</code> object.
-     * 
-     * @return the ordered list of function arguments
-     */
     public List getParameters();
-    
 }

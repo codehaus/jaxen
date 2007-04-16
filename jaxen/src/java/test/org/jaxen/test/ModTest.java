@@ -61,11 +61,11 @@ import junit.framework.TestCase;
 
 /**
  * <p>
- *  Test for the remainder function.
+ *  Test for function context.
  * </p>
  * 
  * @author Elliotte Rusty Harold
- * @version 1.1.1
+ * @version 1.1b9
  *
  */
 public class ModTest extends TestCase

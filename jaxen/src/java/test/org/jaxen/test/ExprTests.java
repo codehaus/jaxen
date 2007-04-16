@@ -57,7 +57,7 @@ import junit.framework.TestSuite;
  * </p>
  * 
  * @author Elliotte Rusty Harold
- * @version 1.1.1
+ * @version 1.1b9
  *
  */
 public class ExprTests {
@@ -69,9 +69,6 @@ public class ExprTests {
         result.addTest(new TestSuite(DefaultXPathExprTest.class));
         result.addTest(new TestSuite(ModTest.class));
         result.addTest(new TestSuite(EqualsTest.class));
-        result.addTest(new TestSuite(LiteralExprTest.class));
-        result.addTest(new TestSuite(BinaryExprTest.class));
-        result.addTest(new TestSuite(ProcessingInstructionNodeTest.class));
         return result;
         
     }

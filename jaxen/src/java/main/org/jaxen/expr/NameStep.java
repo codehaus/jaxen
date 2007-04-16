@@ -46,30 +46,9 @@
  */
 package org.jaxen.expr;
 
-/**
- * Represents an XPath name test such as <code>para</code> or 
- * <code>svg:rect</code>. This is production 37 in the 
- * <a href="http://www.w3.org/TR/xpath#NT-NameTest">XPath 1.0 specification</a>:
- * 
- * <pre>[37] NameTest ::=  '*' 
- *                | NCName ':' '*'    
- *                | QName</pre>
- * 
- */
+//public interface Step extends Predicated, Expr
 public interface NameStep extends Step
 {
-    
-    /**
-     * Returns the namespace prefix of the matched node. This is the empty
-     * string for nodes in the default namespace. 
-     * 
-     * @return the namespace prefix of the natched node
-     */
     public String getPrefix();
-    
-    /**
-     * Returns the local name of the matched node 
-     * 
-     * @return the local name of the test
-     */
-    public String getLocalName();}
+    public String getLocalName();
+}

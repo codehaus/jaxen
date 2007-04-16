@@ -164,6 +164,11 @@ public class XPathReaderFactory
         {
             throw new SAXPathException( e );
         }
+
+        if ( reader == null )
+        {
+            throw new SAXPathException( "Unable to create XPathReader" );
+        }
         
         return reader;
     }

@@ -46,10 +46,6 @@
  */
 package org.jaxen.expr;
 
-/**
- * Represents the XPath node-test <code>text()</code>.
- * 
- */
 public interface TextNodeStep extends Step
 {
 }

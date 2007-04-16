@@ -44,37 +44,28 @@
  * 
  * $Id$
  */
+package org.jaxen.expr;
 
-
-
-package org.jaxen.test;
-
-import org.jaxen.JaxenException;
-import org.jaxen.expr.*;
-
-import junit.framework.TestCase;
-
-/**
- * <p>
- *  Test for function context.
- * </p>
- * 
- * @author Elliotte Rusty Harold
- * @version 1.1b12
- *
- */
-public class DefaultXPathFactoryTest extends TestCase {
-
-    public void testBadAxis() throws JaxenException {
-      
-      DefaultXPathFactory factory = new DefaultXPathFactory();
-      try {
-        factory.createAllNodeStep(123434);
-        fail("Allowed bad axis");
-      }
-      catch (JaxenException ex) {
-        assertNotNull(ex.getMessage());
-      }
-    }
-
+public interface Visitor {
+    public void visit(PathExpr path);
+    public void visit(LocationPath path);
+    public void visit(LogicalExpr expr);
+    public void visit(EqualityExpr expr);
+    public void visit(FilterExpr expr);
+    public void visit(RelationalExpr expr);
+    public void visit(AdditiveExpr expr);
+    public void visit(MultiplicativeExpr expr);
+    public void visit(UnaryExpr expr);
+    public void visit(UnionExpr expr);
+    public void visit(NumberExpr expr);
+    public void visit(LiteralExpr expr);
+    public void visit(VariableReferenceExpr expr);
+    public void visit(FunctionCallExpr expr);
+    // Steps
+    public void visit(NameStep step);
+    public void visit(ProcessingInstructionNodeStep step);
+    public void visit(AllNodeStep step);
+    public void visit(TextNodeStep step);
+    public void visit(CommentNodeStep step);
+    public void visit(Predicate predicate);
 }
