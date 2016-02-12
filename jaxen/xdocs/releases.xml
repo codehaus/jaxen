@@ -10,7 +10,7 @@
     <section name="Official Builds">
 
       <p>
-The current version is 1.1.6. 1.1.6 fixes several bugs in IEEE 754 arithmetic. 
+The current version is 1.2.0. 1.2.0 removes the org.w3c.dom namespace for compatibility with build time package scanners.
 </p>
 
 <p>
@@ -24,16 +24,17 @@ is backwards compatible with code written to the 1.0 APIs.
       </p>
 
       <p>
-      The recommended build is <strong>1.1.6</strong>:
+      The recommended build is <strong>1.2.0</strong>:
       </p>
 
       <ul>
-        <li><a href="http://dist.codehaus.org/jaxen/distributions/jaxen-1.1.6-bin.zip">1.1.6  binaries in zip format.</a></li>
-        <li><a href="http://dist.codehaus.org/jaxen/distributions/jaxen-1.1.6-bin.tar.gz">1.1.6 binaries in tar/gz format.</a></li>
-        <li><a href="http://dist.codehaus.org/jaxen/distributions/jaxen-1.1.6-bin.tar.bz2">1.1.6 binaries in bz2 format.</a></li>
-        <li><a href="http://dist.codehaus.org/jaxen/distributions/jaxen-1.1.6-src.zip">1.1.6 sources in zip format.</a></li>
-        <li><a href="http://dist.codehaus.org/jaxen/distributions/jaxen-1.1.6-src.tar.gz">1.1.6 sources in tar/gz format.</a></li>
-        <li><a href="http://dist.codehaus.org/jaxen/distributions/jaxen-1.1.6-src.tar.bz2">1.1.6 sources in bz2 format.</a></li>
+>
+        <li><a href="http://dist.codehaus.org/jaxen/distributions/jaxen-1.2.0-bin.zip">1.2.0  binaries in zip format.</a></li>
+        <li><a href="http://dist.codehaus.org/jaxen/distributions/jaxen-1.2.0-bin.tar.gz">1.2.0 binaries in tar/gz format.</a></li>
+        <li><a href="http://dist.codehaus.org/jaxen/distributions/jaxen-1.2.0-bin.tar.bz2">1.2.0 binaries in bz2 format.</a></li>
+        <li><a href="http://dist.codehaus.org/jaxen/distributions/jaxen-1.2.0-src.zip">1.2.0 sources in zip format.</a></li>
+        <li><a href="http://dist.codehaus.org/jaxen/distributions/jaxen-1.2.0-src.tar.gz">1.2.0 sources in tar/gz format.</a></li>
+        <li><a href="http://dist.codehaus.org/jaxen/distributions/jaxen-1.2.0-src.tar.bz2">1.2.0 sources in bz2 format.</a></li>
       </ul>
 
     </section>

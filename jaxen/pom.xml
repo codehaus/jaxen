@@ -12,7 +12,7 @@
   <artifactId>jaxen</artifactId>
   <packaging>bundle</packaging>
   <name>jaxen</name>
-  <version>1.1.6</version>
+  <version>1.2.0</version>
   <description>Jaxen is a universal Java XPath engine.</description>
   <url>http://jaxen.codehaus.org/</url>
   <licenses>
@@ -243,7 +243,6 @@
             <Bundle-Version>${project.version}</Bundle-Version>
             <Export-Package>org.jaxen.*;version=${project.version}</Export-Package>
             <Include-Resource>
-              org/w3c/dom/UserDataHandler.class=target/classes/org/w3c/dom/UserDataHandler.class,
               META-INF/LICENSE.txt=LICENSE.txt
             </Include-Resource>
             <Import-Package>

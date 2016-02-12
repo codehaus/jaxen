@@ -5,7 +5,7 @@
   <pomVersion>3</pomVersion>
   <id>jaxen</id>
   <name>jaxen</name>
-  <currentVersion>1.1.5</currentVersion>
+  <currentVersion>1.2.0</currentVersion>
 
   <organization>
     <name>Codehaus</name>
