@@ -11,16 +11,27 @@
     <section name="Change History">
 
 
-   <section name="Jaxen 1.1.5">
+    <section name="Jaxen 1.2.0">
+
+        <p>
+            Jaxen 1.2.0 removes org.w3c.dom.UserDataHandler to remove multiple classes in that package, to avoid package scanner errors
+        </p>
+
+
+    </section>
+
+
+
+    <section name="Jaxen 1.1.6">
 
       <p>
          Jaxen 1.1.6 fixes several bugs in the handling of IEEE-754 -0.
       </p>
-      
+
 
     </section>
-    
-    
+
+
 
    <section name="Jaxen 1.1.5">
 

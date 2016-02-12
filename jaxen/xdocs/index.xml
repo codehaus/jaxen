@@ -17,14 +17,14 @@
       </p>
 
       <p>
-      The current version is <strong>1.1.6</strong>:
+      The current version is <strong>1.2.0</strong>:
       </p>
 
       <ul>
-        <li><a href="http://dist.codehaus.org/jaxen/distributions/jaxen-1.1.6.zip">1.1.6  binaries in zip format.</a></li>
-        <li><a href="http://dist.codehaus.org/jaxen/distributions/jaxen-1.1.6.tar.gz">1.1.6 binaries in tar/gz format.</a></li>
-        <li><a href="http://dist.codehaus.org/jaxen/distributions/jaxen-1.1.6-src.zip">1.1.6 sources in zip format.</a></li>
-        <li><a href="http://dist.codehaus.org/jaxen/distributions/jaxen-1.1.6-src.tar.gz">1.1.6 sources in tar/gz format.</a></li>
+        <li><a href="http://dist.codehaus.org/jaxen/distributions/jaxen-1.2.0.zip">1.2.0  binaries in zip format.</a></li>
+        <li><a href="http://dist.codehaus.org/jaxen/distributions/jaxen-1.2.0.tar.gz">1.2.0 binaries in tar/gz format.</a></li>
+        <li><a href="http://dist.codehaus.org/jaxen/distributions/jaxen-1.2.0-src.zip">1.2.0 sources in zip format.</a></li>
+        <li><a href="http://dist.codehaus.org/jaxen/distributions/jaxen-1.2.0-src.tar.gz">1.2.0 sources in tar/gz format.</a></li>
       </ul>
 
 
@@ -41,7 +41,7 @@
     
     <section name="News">
       <p>
-	     <a href="http://www.xom.nu/">XOM 1.2.9</a> bundles Jaxen 1.1.6.
+	     <a href="http://www.xom.nu/">XOM 1.2.9</a> bundles Jaxen 1.2.0.
       </p>
 
       <p>
