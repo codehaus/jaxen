@@ -206,8 +206,8 @@
   </contributors>
 
   <scm>
-    <connection>scm:svn:https://svn.codehaus.org/jaxen/trunk/jaxen/</connection>
-    <url>http://fisheye.codehaus.org/browse/jaxen/</url>
+    <connection>scm:git:https://github.com/codehaus/jaxen.git</connection>
+    <url>https://github.com/codehaus/jaxen/</url>
   </scm>
 
   <organization>
